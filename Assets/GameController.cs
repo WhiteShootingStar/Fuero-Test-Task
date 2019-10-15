@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     private Grid grid;
     private readonly int gridHeight = 160, gridLength = 160;
     private Vector3 CameraBottomLeft, CameraTopRight;
-    private Vector3 topPointCoordinate;
+    private Vector3 topPointCoordinate, bottomPointCoordinate;
     bool spawn = false;
     private GameObject[,] asterArray;
     // Start is called before the first frame update
@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour
         Instantiate(PlayerShip, spawnPostionShip, Quaternion.identity);
         camera.Search();
 
-        CameraBottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, camera.offsetZ))+spawnPostionShip;
-        CameraTopRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, camera.offsetZ))+spawnPostionShip;
+        CameraBottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, camera.offsetZ)) + spawnPostionShip;
+        CameraTopRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, camera.offsetZ)) + spawnPostionShip;
         Debug.Log(CameraBottomLeft + " BoTTOM LEFT");
         Debug.Log(CameraTopRight + " TOP RIGHT LEFT");
 
@@ -49,11 +49,13 @@ public class GameController : MonoBehaviour
             }
         }
 
-        //for(int i = 0; i < 160 ; i++)
-        //{   for(int j=0; j < 160; j++)
+        //for (int i = 0; i < 160; i++)
+        //{
+        //    for (int j = 0; j < 160; j++)
         //    {
+        //        Vector3 spawnPostion = grid.GetCellCenterWorld(new Vector3Int(j, i, 0));// GetMiddlePosition(i, j);
 
-        //        var go = Instantiate(Asteroid, Vector3.zero, Quaternion.identity);
+        //        var go = Instantiate(Asteroid, spawnPostion, Quaternion.identity);
         //        go.SetActive(false);
         //        asterArray[i, j] = go;
 
@@ -61,26 +63,24 @@ public class GameController : MonoBehaviour
 
 
         //}
-        //for(int i=0; i < asterArray.GetLength(0); i++)
+        //for (int i = 0; i < asterArray.GetLength(0); i++)
         //{
-        //    for(int j=0; j < asterArray.GetLength(1); j++)
+        //    for (int j = 0; j < asterArray.GetLength(1); j++)
         //    {
         //        Vector3 spawnPostion = grid.GetCellCenterWorld(new Vector3Int(j, i, 0));
-        //        asterArray[i,j].transform.position = spawnPostion;
+        //        asterArray[i, j].transform.position = spawnPostion;
         //        asterArray[i, j].SetActive(true);
         //    }
         //}
         Debug.Log("After " + Time.realtimeSinceStartup);
-        topPointCoordinate = grid.CellToWorld(new Vector3Int(100, 100, 0));
+        topPointCoordinate = grid.CellToWorld(new Vector3Int(gridLength, gridHeight, 0));
+        bottomPointCoordinate = grid.CellToWorld(new Vector3Int(0, 0, 0));
         UpdateText();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 
     public void UpdateText()
     {
@@ -94,47 +94,69 @@ public class GameController : MonoBehaviour
     }
 
 
-    private bool IsInsideCamera(Vector3 bottomLeft, Vector3 topRight, Vector3 point)
+    private bool IsInsideCamera(Vector3 point)
     {
-        if (point.x >= bottomLeft.x && point.x <= topRight.x) return true;
-        if (point.y >= bottomLeft.y && point.y <= topRight.y) return true;
+        //if (point.x >= bottomLeft.x && point.x <= topRight.x) return true;
+        //if (point.y >= bottomLeft.y && point.y <= topRight.y) return true;
+        if (Camera.main.WorldToViewportPoint(point).x < 0 && Camera.main.WorldToViewportPoint(point).x > 0) return true;
+        if (Camera.main.WorldToViewportPoint(point).y < 0 && Camera.main.WorldToViewportPoint(point).y > 0) return true;
+
         return false;
     }
-    
 
+    public Vector3 getGoodSpawnPosition()
+    {
+        Vector3 random = new Vector3(Random.Range(bottomPointCoordinate.x, topPointCoordinate.x), Random.Range(bottomPointCoordinate.y, topPointCoordinate.y));
+        //if (!IsInsideCamera(random))
+        //{
+        //    Debug.Log(random);
+        //}
+        return random;
+
+    }
     public IEnumerator RespawnAsteroid(GameObject asteroid)
     {
-       asteroid.SetActive(false);
-       
+        Debug.Log("Before waiting");
+        asteroid.SetActive(false);
+
+
+        Debug.Log("After waiting");
         int randomHeight = Random.Range(0, gridHeight);
         int randomLength = Random.Range(0, gridLength);
         Vector3 randomPosition = grid.GetCellCenterWorld(new Vector3Int(randomLength, randomHeight, 0));
-         if (!IsInsideCamera(CameraBottomLeft, CameraTopRight, randomPosition))
+        if (!IsInsideCamera(randomPosition))
         {
             //Instantiate(Asteroid, randomPosition, Quaternion.identity);
-            asteroid.transform.position = randomPosition;
-            asteroid.gameObject.SetActive(true);
-           
+            //asteroid.transform.position = randomPosition;
+            //asteroid.gameObject.SetActive(true);
+            Debug.Log("Should be respawned");
+
         }
-        //else
-        //{
-        //    RespawnAsteroid(asteroid);
-        //}
-       yield return new WaitForSeconds(1f);
+        else
+        {
+            Debug.Log("BAD RANDOM");
+        }
+        yield return new WaitForSeconds(10f);
+        Debug.Log("ЛУЛ");
 
     }
     public void RespAster(GameObject a)
     {
         a.SetActive(false);
+
         int randomHeight = Random.Range(0, gridHeight);
         int randomLength = Random.Range(0, gridLength);
         Vector3 randomPosition = grid.GetCellCenterWorld(new Vector3Int(randomLength, randomHeight, 0));
-        if (!IsInsideCamera(CameraBottomLeft, CameraTopRight, randomPosition))
+        if (!IsInsideCamera(randomPosition))
         {
             a.transform.position = randomPosition;
             a.gameObject.SetActive(true);
 
 
         }
+    }
+    private IEnumerator wait()
+    {
+        yield return new WaitForSeconds(1f);
     }
 }

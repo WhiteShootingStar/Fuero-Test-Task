@@ -15,17 +15,21 @@ public class AsteroidScript : MonoBehaviour
             GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         }
-        speed = Random.value * 15;
+        
+        speed = Random.Range(0.1f,25f);
         direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        GetComponent<Rigidbody>().velocity= direction * speed * Time.deltaTime;
+       
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(direction * speed * Time.deltaTime);
-    }
+    //void LateUpdate()
+    //{
+    //    transform.Translate(direction * speed * Time.deltaTime);
+    //  //  transform.localPosition += direction * speed * Time.deltaTime;
+    //}
 
-
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,13 +44,20 @@ public class AsteroidScript : MonoBehaviour
             Camera.main.GetComponent<CameraScript>().StopFollowing();
             other.gameObject.SetActive(false);
         }
-       
+
         //Destroy(other.gameObject);
-       
-        GameController.RespAster(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
+        Invoke("resp", 1f);
+        // GameController.RespAster(gameObject);
         // other.gameObject.SetActive(false);
-
-
+       // GameController.RespAster(gameObject);
        //StartCoroutine(GameController.RespawnAsteroid(gameObject));
+    }
+   void resp()
+    {
+        
+        gameObject.SetActive(true);
+        gameObject.transform.position = GameController.getGoodSpawnPosition();
     }
 }

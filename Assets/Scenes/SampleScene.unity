@@ -495,6 +495,12 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 877479615}
+    - target: {fileID: 5633261131904561815, guid: 9e41b3c61ea6fd34aabfcc2ab14d320e,
+        type: 3}
+      propertyPath: Asteroid
+      value: 
+      objectReference: {fileID: 2142238869654605990, guid: 1538c62537a8c664bae7a02f2d0a2e0d,
+        type: 3}
     - target: {fileID: 5633261131904561814, guid: 9e41b3c61ea6fd34aabfcc2ab14d320e,
         type: 3}
       propertyPath: m_LocalPosition.x
