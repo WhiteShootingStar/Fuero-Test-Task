@@ -15,21 +15,11 @@ public class AsteroidScript : MonoBehaviour
             GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         }
-        
-        speed = Random.Range(0.1f,25f);
-        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        GetComponent<Rigidbody>().velocity= direction * speed * Time.deltaTime;
+        speed = Random.Range(1f,20f);
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));// getting random speed and direction
+        GetComponent<Rigidbody>().velocity= direction * speed * Time.deltaTime;// this function is much cheaper in terms of CPU than Translate in Update() method
        
     }
-
-    // Update is called once per frame
-    //void LateUpdate()
-    //{
-    //    transform.Translate(direction * speed * Time.deltaTime);
-    //  //  transform.localPosition += direction * speed * Time.deltaTime;
-    //}
-
-   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,27 +27,23 @@ public class AsteroidScript : MonoBehaviour
         if (other.tag.Equals("Bullet"))
         {
             GameController.UpdateText();
-
+            Destroy(other.gameObject);
+           
         }
         else if (other.tag.Equals("Player"))
         {
             Camera.main.GetComponent<CameraScript>().StopFollowing();
             other.gameObject.SetActive(false);
+           
         }
-
-        //Destroy(other.gameObject);
-        //Destroy(gameObject);
-        gameObject.SetActive(false);
-        Invoke("resp", 1f);
-        // GameController.RespAster(gameObject);
-        // other.gameObject.SetActive(false);
-       // GameController.RespAster(gameObject);
-       //StartCoroutine(GameController.RespawnAsteroid(gameObject));
+       
+        gameObject.SetActive(false); // since the is a lot of such objects, I've decided to to use object pooling here 
+        Invoke("Resp", 1f);
+       
     }
-   void resp()
-    {
-        
+   void Resp()
+    {  
         gameObject.SetActive(true);
-        gameObject.transform.position = GameController.getGoodSpawnPosition();
+         GameController.RespawnAtGoodPosition(gameObject); // 'ask' Gamecontroller to respawn this object
     }
 }

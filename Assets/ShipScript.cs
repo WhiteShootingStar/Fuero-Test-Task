@@ -12,8 +12,8 @@ public class ShipScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Shoot", 0.5f, 0.5f);
-        LosingContainer = GameObject.FindGameObjectWithTag("LosingContainer");
+        InvokeRepeating("Shoot", 0.5f, 0.5f);//constantly shooting
+        LosingContainer = GameObject.FindGameObjectWithTag("LosingContainer"); //finding container that contains UI for losing
         LosingContainer.SetActive(false);
     }
 

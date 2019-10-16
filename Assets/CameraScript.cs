@@ -6,11 +6,8 @@ public class CameraScript : MonoBehaviour
 {
     public float offsetZ = 7;
 
-
-
     private GameObject player;
     private bool isFound = false;
-   
 
     // Update is called once per frame
     void Update()
@@ -27,7 +24,7 @@ public class CameraScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         isFound = true;
     }
-    public void StopFollowing()
+    public void StopFollowing() // method to stop following the player
     {
         isFound = false;
     }
