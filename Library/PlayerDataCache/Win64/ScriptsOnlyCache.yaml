@@ -24,10 +24,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
-<<<<<<< HEAD
-=======
     - UnityEngine.Networking.NetworkCallbacks
->>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
@@ -60,45 +57,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9686}
+      Script: {instanceID: 9696}
     - Class: 114
-      Script: {instanceID: 9730}
+      Script: {instanceID: 9740}
     - Class: 114
-      Script: {instanceID: 9760}
+      Script: {instanceID: 9770}
     - Class: 114
-      Script: {instanceID: 9844}
+      Script: {instanceID: 9854}
     - Class: 114
-      Script: {instanceID: 9848}
+      Script: {instanceID: 9858}
     - Class: 114
-      Script: {instanceID: 9928}
+      Script: {instanceID: 9938}
     - Class: 114
-      Script: {instanceID: 9942}
+      Script: {instanceID: 9952}
     - Class: 114
-      Script: {instanceID: 9972}
+      Script: {instanceID: 9982}
     - Class: 114
-      Script: {instanceID: 9984}
+      Script: {instanceID: 9994}
     - Class: 114
-      Script: {instanceID: 10214}
+      Script: {instanceID: 10224}
     - Class: 114
-      Script: {instanceID: 10524}
+      Script: {instanceID: 10534}
     - Class: 114
-      Script: {instanceID: 10854}
+      Script: {instanceID: 10864}
     - Class: 114
-      Script: {instanceID: 10982}
+      Script: {instanceID: 10992}
     - Class: 114
-      Script: {instanceID: 11066}
+      Script: {instanceID: 11076}
     - Class: 114
-      Script: {instanceID: 11480}
+      Script: {instanceID: 11490}
     - Class: 114
-      Script: {instanceID: 11676}
+      Script: {instanceID: 11686}
     - Class: 114
-      Script: {instanceID: 12096}
+      Script: {instanceID: 12106}
     - Class: 114
-      Script: {instanceID: 12178}
+      Script: {instanceID: 12188}
     - Class: 114
-      Script: {instanceID: 12198}
+      Script: {instanceID: 12208}
     - Class: 114
-      Script: {instanceID: 12240}
+      Script: {instanceID: 12250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
