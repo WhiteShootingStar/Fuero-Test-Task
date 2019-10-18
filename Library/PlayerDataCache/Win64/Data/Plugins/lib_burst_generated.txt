@@ -1,0 +1,18 @@
+--platform=Windows
+--backend=burst-llvm
+--target=X64_SSE4
+--noalias
+--dump=Function
+--float-precision=Standard
+--format=Coff
+--output=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Plugins\lib_burst_generated
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\com.unity.multiplayer-hlapi.Runtime.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\UnityEngine.XR.LegacyInputHelpers.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\Unity.Burst.dll
+--root-assembly=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\UnityEngine.SpatialTracking.dll
+--assembly-folder=D:\unity\project\Space Ship Fuero\Temp\StagingArea\Data\Managed\
