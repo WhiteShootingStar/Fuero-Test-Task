@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
+<<<<<<< HEAD
   productGUID: a94d650030c86ff42a6363a1667c25a3
+=======
+  productGUID: 00000000000000000000000000000000
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -12,8 +16,13 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
+<<<<<<< HEAD
   companyName: DefaultCompany
   productName: Space Ship Fuero
+=======
+  companyName: 
+  productName: 
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -277,6 +286,7 @@ PlayerSettings:
   AndroidAppBundleSizeToValidate: 150
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons: []
+<<<<<<< HEAD
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
@@ -370,6 +380,9 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
+=======
+  m_BuildTargetPlatformIcons: []
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer

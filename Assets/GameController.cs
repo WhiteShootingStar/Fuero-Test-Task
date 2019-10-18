@@ -44,9 +44,15 @@ public class GameController : MonoBehaviour
         Distance = Vector3.Distance(CameraBottomLeft, CameraTopRight);
 
         //fill grid with asteroid
+<<<<<<< HEAD
         for (int i = 0; i < gridHeight; ++i)
         {
             for (int j = 0; j < gridLength; ++j)
+=======
+        for (int i = 0; i < 160; ++i)
+        {
+            for (int j = 0; j < 160; ++j)
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
             {
                 Vector3 spawnPostion = grid.GetCellCenterWorld(new Vector3Int(j, i, 0));
 
@@ -84,11 +90,18 @@ public class GameController : MonoBehaviour
          randomPoint= Quaternion.Euler(0, 0, randomAngle) * randomPoint;
 
         float randomMultiplier = Random.Range(Distance *Distance, gridDistance/2 );
+<<<<<<< HEAD
         //final position to spawn
         Aster.transform.position = Vector3.Scale(camera.transform.position, new Vector3(1, 1, 0)) + randomPoint * randomMultiplier;
        
        
        
+=======
+        Aster.transform.position = Vector3.Scale(camera.transform.position, new Vector3(1, 1, 0));
+       
+        //final position to spawn
+        Aster.transform.position += randomPoint * randomMultiplier;
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
 
     }
 

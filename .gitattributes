@@ -1,3 +1,6 @@
 *.csproj filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
 .dll filter=lfs diff=lfs merge=lfs -text
 .csproj filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695

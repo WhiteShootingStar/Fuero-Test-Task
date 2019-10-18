@@ -15,12 +15,20 @@ public class AsteroidScript : MonoBehaviour
             GameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         }
+<<<<<<< HEAD
         speed = Random.Range(3f,20f);
+=======
+        speed = Random.Range(1f,20f);
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
         direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));// getting random speed and direction
         GetComponent<Rigidbody>().velocity= direction * speed * Time.deltaTime;// this function is much cheaper in terms of CPU than Translate in Update() method
        
     }
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
     private void OnTriggerEnter(Collider other)
     {
 

@@ -24,6 +24,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
+<<<<<<< HEAD
+=======
+    - UnityEngine.Networking.NetworkCallbacks
+>>>>>>> 2493ad097dd2438841c2c8f9cf4fd1c6e9f67695
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
